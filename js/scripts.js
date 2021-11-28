@@ -1,26 +1,24 @@
-
-
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
-    var navbarShrink = function () {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
+    var shrinkNavbar = function () {
+        const navCollapsible = document.body.querySelector('#mainNav');
+        if (!navCollapsible) {
             return;
         }
         if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
+            navCollapsible.classList.remove('navbar-shrink')
         } else {
-            navbarCollapsible.classList.add('navbar-shrink')
+            navCollapsible.classList.add('navbar-shrink')
         }
 
     };
 
     // Shrink the navbar 
-    navbarShrink();
+    shrinkNavbar();
 
     // Shrink the navbar when page is scrolled
-    document.addEventListener('scroll', navbarShrink);
+    document.addEventListener('scroll', shrinkNavbar);
 
     // Activate Bootstrap scrollspy on the main nav element
     const mainNav = document.body.querySelector('#mainNav');
@@ -32,14 +30,14 @@ window.addEventListener('DOMContentLoaded', event => {
     };
 
     // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
+    const togglerNavbar = document.body.querySelector('.navbar-toggler');
+    const navItemsResponsive = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
     );
-    responsiveNavItems.map(function (responsiveNavItem) {
+    navItemsResponsive.map(function (responsiveNavItem) {
         responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
+            if (window.getComputedStyle(togglerNavbar).display !== 'none') {
+                togglerNavbar.click();
             }
         });
     });
