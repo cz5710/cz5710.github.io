@@ -1,6 +1,6 @@
 /* Bordered form */
 form {
-    border: 3px solid #f1f1f1;
+    border: 3px solid rgb(0, 0, 0);
 }
 
 /* Full-width inputs */
@@ -10,13 +10,13 @@ input[type=password] {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(0, 0, 0);
     box-sizing: border-box;
 }
 
 /* Set a style for all buttons */
 button {
-    background-color: #fda532;
+    background-color: #f19e29;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -50,8 +50,16 @@ img.avatar {
 
 /* The "Forgot password" text */
 span.psw {
-    float: right;
+    float: left;
+    text-align: center;
     padding-top: 16px;
+    color: #000;
+}
+
+span.first {
+    float:right;
+    padding-top: 8px;
+    color: #000;
 }
 
 /* Change styles for span and cancel button on extra small screens */
