@@ -9,6 +9,8 @@
 /* Bordered form */
 form {
     border: 3px solid rgb(0, 0, 0);
+    width: 50%;
+    margin-left: 25%;
 }
 
 /* Full-width inputs */
@@ -75,5 +77,9 @@ span.first {
     span.psw {
         display: block;
         float: none;
+    }
+    form {
+        width: 50%;
+        margin-left: 25%;
     }
 }
