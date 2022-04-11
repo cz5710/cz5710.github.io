@@ -67,6 +67,10 @@ img.avatar {
 /* Add padding to containers */
 .container-1 {
     padding: 16px;
+}
+
+.font {
+    position: relative;
     font-family: "Montserrat",
     -apple-system,
     BlinkMacSystemFont,
@@ -82,20 +86,19 @@ img.avatar {
 }
 
 .container-signin {
-    position: relative;
-    font-family: "Montserrat",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji";
     text-align: center;
+}
+
+.container-signup {
+    text-align: left;
+    left: 15px;
+    bottom: -5px;
+}
+
+.container-psw {
+    text-align: left;
+    right: 10px;
+    bottom: 10px;
 }
 
 /* The "Forgot password" text */
