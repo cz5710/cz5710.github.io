@@ -1,60 +1,118 @@
-function formValidation() {
-    var uid = document.registration.userid;
-    var passid = document.registration.passid;
-    var uname = document.registration.username;
-    var uadd = document.registration.address;
-    var ucountry = document.registration.country;
-    var uzip = document.registration.zip;
-    var uemail = document.registration.email;
-    var umsex = document.registration.msex;
-    var ufsex = document.registration.fsex; if (userid_validation(uid, 5, 12)) {
-        if (passid_validation(passid, 7, 12)) {
-            if (allLetter(uname)) {
-                if (alphanumeric(uadd)) {
-                    if (countryselect(ucountry)) {
-                        if (allnumeric(uzip)) {
-                            if (ValidateEmail(uemail)) {
-                                if (validsex(umsex, ufsex)) {
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return false;
+// function register() {
+//     var name = document.getElementById("t1").value;
+//     var name = document.getElementById("t2").value;
+//     var name = document.getElementById("t3").value;
+//     var name = document.getElementById("t4").value;
+
+//     //email id expression code
+//     var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+//     var letters = /^[A-Za-z]+$/;
+//     var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+//     if (name == "") {
+//         alert("Please enter your name");
+//     }
+//     else if (!letters.test(name)) {
+//         alert("Name field required only alphabet characters");
+//     }
+//     else if (email == "") {
+//         alert("Please enter your user email id");
+//     }
+//     else if (!filter.test(email)) {
+//         alert("Invalid email");
+//     }
+//     else if (pwd == "") {
+//         alert("Please enter Password");
+//     }
+//     else if (cpwd == "") {
+//         alert("Enter Confirm Password");
+//     }
+//     else if (!pwd_expression.test(pwd)) {
+//         alert("Upper case, lower case, special character and numeric letter are required in Password filed");
+//     }
+//     else if (pwd != cpwd) {
+//         alert("Password not Matched");
+//     }
+//     else if (document.getElementById("t4").value.length < 6) {
+//         alert("Password minimum length is 6");
+//     }
+//     else if (document.getElementById("t4").value.length > 12) {
+//         alert("Password max length is 12");
+//     }
+//     else {
+//         alert("Error");
+//     }
+// }
+
+const form = document.getElementsByName("form");
+const username = document.getElementsByName("name");
+const email = document.getElementsByName("email");
+const psw = document.getElementsByName("psw");
+const pswR = document.getElementsByName("psw-repeat");
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    validateInputs();
+});
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
 }
 
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
 
-function userid_validation(uid, mx, my) {
-    var uid_len = uid.value.length;
-    if (uid_len == 0 || uid_len >= my || uid_len < mx) {
-        alert("User Id should not be empty / length be between " + mx + " to " + my);
-        uid.focus();
-        return false;
-    }
-    return true;
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
+
+const isValidEmail = email => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }
 
-function passid_validation(passid, mx, my) {
-    var passid_len = passid.value.length;
-    if (passid_len == 0 || passid_len >= my || passid_len < mx) {
-        alert("Password should not be empty / length be between " + mx + " to " + my);
-        passid.focus();
-        return false;
-    }
-    return true;
-}
+const validateInputs = () => {
+    // trim blank spaces if any
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const pswValue = psw.value.trim();
+    const pswRValue = pswR.value.trim();
 
-function allLetter(uname) {
-    var letters = /^[A-Za-z]+$/;
-    if (uname.value.match(letters)) {
-        return true;
+    if (usernameValue === '') {
+        setError(username, 'Username is required');
+    } else {
+        setSuccess(username);
     }
-    else {
-        alert('Username must have alphabet characters only');
-        uname.focus();
-        return false;
+
+    if (emailValue === '') {
+        setError(email, 'Email is required');
+    } else if (!isValidEmail(emailValue)) {
+        setError(email, 'Provide a valid email address');
+    } else {
+        setSuccess(email);
     }
-}
+
+    if (pswValue === '') {
+        setError(psw, 'Password is required');
+    } else if (pswValue.length < 8) {
+        setError(psw, 'Password must be at least 8 character.')
+    } else {
+        setSuccess(psw);
+    }
+
+    if (pswRValue === '') {
+        setError(pswR, 'Please confirm your password');
+    } else if (pswRValue !== pswValue) {
+        setError(pswR, "Passwords doesn't match");
+    } else {
+        setSuccess(pswR);
+    }
+};
