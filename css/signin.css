@@ -17,14 +17,12 @@
     text-decoration: none;
 }
 
-/* Bordered form */
 form {
     border: 3px solid rgb(0, 0, 0);
-    width: 50%;
-    margin-left: 25%;
+    width: 500px;
+    margin-left: 410px;
 }
 
-/* Full-width inputs */
 input[type=text],
 input[type=password] {
     width: 100%;
@@ -35,7 +33,6 @@ input[type=password] {
     box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
 button {
     background-color: #f19e29;
     color: white;
@@ -46,25 +43,21 @@ button {
     width: 100%;
 }
 
-/* Add a hover effect for buttons */
 button:hover {
     opacity: 0.8;
 }
 
-/* Center the avatar image inside this container */
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
 }
 
-/* Avatar image */
 img.avatar {
     width: 100px;
     height: auto;
     border-radius: 80%;
 }
 
-/* Add padding to containers */
 .container-1 {
     padding: 16px;
 }
@@ -85,37 +78,24 @@ img.avatar {
     "Noto Color Emoji";
 }
 
-.container-signin {
-    text-align: center;
-}
-
-.container-signup {
-    text-align: left;
-    left: 15px;
-    bottom: -5px;
-}
-
-.container-psw {
-    text-align: left;
+.container-ac {
+    text-align: right;
     right: 10px;
-    bottom: 10px;
+    bottom: 0px;
 }
 
-/* The "Forgot password" text */
 span.psw {
     float: right;
-    text-align: center;
-    padding-top: 16px;
+    /* text-align: center; */
+    /* padding-top: 16px; */
     color: #000;
 }
 
-span.first {
-    float:left;
-    padding-top: 8px;
-    color: #000;
+span.account {
+    float: left;
+    padding-top: 10px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
     span.psw {
         display: block;

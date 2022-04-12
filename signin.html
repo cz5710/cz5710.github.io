@@ -43,20 +43,19 @@
     </nav>
     <!-- Sign in -->
     <div class="container">
-        <section class="page-section">
+        <section class="page-section font">
             <form action="/js/signup.js" method="post" id="signin">
                 <div class="imgcontainer"><img src="assets/img/chef.png" alt="Avatar" class="avatar"></div>
-                <div class="container-1 font">
+                <div class="container-1">
                     <input type="text" placeholder="username / email" name="uname" required>
                     <input type="password" placeholder="password" name="psw" required>
                     <button type="submit">Login</button>
                     <label><input type="checkbox" checked="checked" name="remember" onclick="signin()"> Remember me</label>
-                </div>
-                <div class="container-psw font">
                     <span class="psw"> <a href="#"> Forgot password?</a></span>
                 </div>
-                <div class="container-signup font">
-                    <p>First time here? <a href="/signup.html">Create account</a>.</p>
+                <div class="container-ac">
+                    <span class="account">First time here? <a href="/signup.html">Create account</a></span>
+                    
                 </div>
             </form>
         </section>
