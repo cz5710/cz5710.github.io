@@ -1,81 +1,8 @@
-// const form = document.getElementsByName("form");
-// const username = document.getElementsByName("name");
-// const email = document.getElementsByName("email");
-// const psw = document.getElementsByName("psw");
-// const pswR = document.getElementsByName("psw-repeat");
-
-// form.addEventListener('submit', e => {
-//     e.preventDefault();
-
-//     validateInputs();
-// });
-
-// const setError = (element, message) => {
-//     const inputControl = element.parentElement;
-//     const errorDisplay = inputControl.querySelector('.error');
-
-//     errorDisplay.innerText = message;
-//     inputControl.classList.add('error');
-//     inputControl.classList.remove('success')
-// }
-
-// const setSuccess = element => {
-//     const inputControl = element.parentElement;
-//     const errorDisplay = inputControl.querySelector('.error');
-
-//     errorDisplay.innerText = '';
-//     inputControl.classList.add('success');
-//     inputControl.classList.remove('error');
-// };
-
-// const isValidEmail = email => {
-//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     return re.test(String(email).toLowerCase());
-// }
-
-// const validateInputs = () => {
-//     // trim blank spaces if any
-//     const usernameValue = username.value.trim();
-//     const emailValue = email.value.trim();
-//     const pswValue = psw.value.trim();
-//     const pswRValue = pswR.value.trim();
-
-//     if (usernameValue === '') {
-//         setError(username, 'Username is required');
-//     } else {
-//         setSuccess(username);
-//     }
-
-//     if (emailValue === '') {
-//         setError(email, 'Email is required');
-//     } else if (!isValidEmail(emailValue)) {
-//         setError(email, 'Provide a valid email address');
-//     } else {
-//         setSuccess(email);
-//     }
-
-//     if (pswValue === '') {
-//         setError(psw, 'Password is required');
-//     } else if (pswValue.length < 8) {
-//         setError(psw, 'Password must be at least 8 character.')
-//     } else {
-//         setSuccess(psw);
-//     }
-
-//     if (pswRValue === '') {
-//         setError(pswR, 'Please confirm your password');
-//     } else if (pswRValue !== pswValue) {
-//         setError(pswR, "Passwords doesn't match");
-//     } else {
-//         setSuccess(pswR);
-//     }
-// };
-
 const form = document.getElementById('form');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
-const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
+const psw = document.getElementById('psw');
+const pswRepeat = document.getElementById('pswRepeat');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -109,8 +36,8 @@ const isValidEmail = email => {
 const validateInputs = () => {
     const usernameValue = username.value.trim();
     const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
-    const password2Value = password2.value.trim();
+    const pswValue = psw.value.trim();
+    const pswRepeatValue = pswRepeat.value.trim();
 
     if (usernameValue === '') {
         setError(username, 'Username is required');
@@ -126,20 +53,20 @@ const validateInputs = () => {
         setSuccess(email);
     }
 
-    if (passwordValue === '') {
-        setError(password, 'Password is required');
-    } else if (passwordValue.length < 8) {
-        setError(password, 'Password must be at least 8 character.')
+    if (pswValue === '') {
+        setError(psw, 'Password is required');
+    } else if (pswValue.length < 8) {
+        setError(psw, 'Password must be at least 8 characters.')
     } else {
-        setSuccess(password);
+        setSuccess(psw);
     }
 
-    if (password2Value === '') {
-        setError(password2, 'Please confirm your password');
-    } else if (password2Value !== passwordValue) {
-        setError(password2, "Passwords doesn't match");
+    if (pswRepeatValue === '') {
+        setError(pswRepeat, 'Please confirm your psw');
+    } else if (pswRepeatValue !== pswValue) {
+        setError(pswRepeat, "Password doesn't match");
     } else {
-        setSuccess(password2);
+        setSuccess(pswRepeat);
     }
 
 };
