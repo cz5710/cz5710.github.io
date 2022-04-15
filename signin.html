@@ -16,7 +16,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/signin.css" rel="stylesheet" />
+    <link href="css/signup.css" rel="stylesheet" />
+    <script defer src="./js/signin.js"></script>
 </head>
 
 <body id="page-top">
@@ -44,14 +45,24 @@
     <!-- Sign in -->
     <div class="container">
         <section class="page-section font">
-            <form action="/js/signup.js" method="post" id="signin">
+            <form action="/" method="post" id="signin">
                 <div class="imgcontainer"><img src="assets/img/chef.png" alt="Avatar" class="avatar"></div>
-                <div class="container-1">
-                    <input type="text" placeholder="username / email" name="uname" required>
-                    <input type="password" placeholder="password" name="psw" required>
+                <div class="container-s">
+                    <div class="input-control">
+                        <label for="username">
+                            <i class="fas fa-user"></i>
+                        </label>
+                        <input id="username" name="username" type="text" placeholder="username">
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <label for="password">
+                            <i class="fas fa-lock"></i>
+                        </label>
+                        <input id="psw" name="psw" type="password" placeholder="password">
+                        <div class="error"></div>
+                    </div>
                     <button type="submit">Login</button>
-                    <label><input type="checkbox" checked="checked" name="remember" onclick="signin()"> Remember me</label>
-                    <span class="psw"> <a href="#"> Forgot password?</a></span>
                 </div>
                 <div class="container-ac">
                     <span class="account">First time here? <a href="/signup.html">Create account</a></span>

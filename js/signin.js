@@ -1,60 +1,49 @@
-function formValidation() {
-    var uid = document.registration.userid;
-    var passid = document.registration.passid;
-    var uname = document.registration.username;
-    var uadd = document.registration.address;
-    var ucountry = document.registration.country;
-    var uzip = document.registration.zip;
-    var uemail = document.registration.email;
-    var umsex = document.registration.msex;
-    var ufsex = document.registration.fsex; if (userid_validation(uid, 5, 12)) {
-        if (passid_validation(passid, 7, 12)) {
-            if (allLetter(uname)) {
-                if (alphanumeric(uadd)) {
-                    if (countryselect(ucountry)) {
-                        if (allnumeric(uzip)) {
-                            if (ValidateEmail(uemail)) {
-                                if (validsex(umsex, ufsex)) {
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return false;
+const form = document.getElementById('signin');
+const username = document.getElementById('username');
+const psw = document.getElementById('psw');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    validateInputs();
+});
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
 }
 
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
 
-function userid_validation(uid, mx, my) {
-    var uid_len = uid.value.length;
-    if (uid_len == 0 || uid_len >= my || uid_len < mx) {
-        alert("User Id should not be empty / length be between " + mx + " to " + my);
-        uid.focus();
-        return false;
-    }
-    return true;
-}
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
 
-function passid_validation(passid, mx, my) {
-    var passid_len = passid.value.length;
-    if (passid_len == 0 || passid_len >= my || passid_len < mx) {
-        alert("Password should not be empty / length be between " + mx + " to " + my);
-        passid.focus();
-        return false;
-    }
-    return true;
-}
+const validateInputs = () => {
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const pswValue = psw.value.trim();
+    const pswRepeatValue = pswRepeat.value.trim();
 
-function allLetter(uname) {
-    var letters = /^[A-Za-z]+$/;
-    if (uname.value.match(letters)) {
-        return true;
+    if (usernameValue === '') {
+        setError(username, 'Username is required');
+    } else {
+        setSuccess(username);
     }
-    else {
-        alert('Username must have alphabet characters only');
-        uname.focus();
-        return false;
+
+    if (pswValue === '') {
+        setError(psw, 'Password is required');
+    } else if (pswValue.length < 8) {
+        setError(psw, 'Password must be at least 8 characters.')
+    } else {
+        setSuccess(psw);
     }
-}
+
+};
