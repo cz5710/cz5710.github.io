@@ -10,8 +10,8 @@
             "driver": "MySQL",
             "name": "user",
             "database": "myshop",
-            "username": "admin",
-            "password": "1234"
+            "username": "sqluser",
+            "password": "Serpiente123!"
         }
     ]
 }
