@@ -40,17 +40,26 @@ form {
 }
 
 button {
-    background-color: #f19e29;
+    /* background-color: #f19e29;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 400px; */
+    width: 97.5%;
+    padding: 15px;
+    background-color: #f98d36;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.2s;
 }
 
 button:hover {
-    opacity: 0.8;
+    background-color: #db8712;
+    transition: background-color 0.2s;
 }
 
 .container-s {
@@ -59,17 +68,6 @@ button:hover {
 
 .input-control {
     display: flex;
-    flex-direction: column;
-}
-
-.input-control input {
-    width: 100%;
-    padding-left: 20px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid rgb(0, 0, 0);
-    box-sizing: border-box;
 }
 
 .input-control input:focus {
@@ -115,4 +113,25 @@ img.avatar {
         width: 50%;
         margin-left: 0;
     }
+}
+
+.input-control label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #f08e33;
+    color: #ffffff;
+}
+
+.input-control input[type="password"],
+.input-control input[type="text"],
+.input-control input[type="email"] {
+    width: 400px;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    /* margin-left: 50px; */
+    margin-bottom: 20px;
+    padding: 0 15px;
 }
