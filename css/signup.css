@@ -68,9 +68,21 @@ button:hover {
 
 .input-control {
     display: flex;
+    /* flex-direction: column; */
+}
+
+.input-control input {
+    width: 100%;
+    padding-left: 20px;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .input-control input:focus {
+    flex-direction: column;
     outline: 0;
 }
 
@@ -124,17 +136,16 @@ img.avatar {
     background-color: #f08e33;
     color: #ffffff;
 }
-
+/* 
 .input-control input[type="password"],
 .input-control input[type="text"],
 .input-control input[type="email"] {
     width: 400px;
     height: 50px;
     border: 1px solid #dee0e4;
-    /* margin-left: 50px; */
     margin-bottom: 20px;
     padding: 0 15px;
-}
+} */
 
 .container-ac {
     text-align: center;
